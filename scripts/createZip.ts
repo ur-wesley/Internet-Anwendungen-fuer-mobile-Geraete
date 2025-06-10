@@ -46,20 +46,29 @@ async function createZip() {
    .join(" -and ");
 
   console.log(`🔍 Excluding patterns: ${excludePatterns.join(", ")}`);
-
   const powershellScript = `
-    $items = Get-ChildItem -Path '.' -Recurse | Where-Object { ${excludeFilter} }
-    $filesToZip = @()
-    foreach ($item in $items) {
-      if (-not $item.PSIsContainer) {
-        $relativePath = $item.FullName.Substring((Get-Location).Path.Length + 1)
-        $filesToZip += $relativePath
-      }
+    $allItems = Get-ChildItem -Path '.' -Recurse | Where-Object { ${excludeFilter} }
+    
+    $filesToZip = $allItems | Where-Object { -not $_.PSIsContainer } | ForEach-Object {
+      $_.FullName.Substring((Get-Location).Path.Length + 1)
     }
     
     if ($filesToZip.Count -gt 0) {
       Write-Host "📄 Including $($filesToZip.Count) files in zip"
-      Compress-Archive -Path $filesToZip -DestinationPath '${zipName}' -CompressionLevel Optimal
+      
+      Add-Type -AssemblyName System.IO.Compression.FileSystem
+      
+      if (Test-Path '${zipName}') { Remove-Item '${zipName}' -Force }
+      
+      $zip = [System.IO.Compression.ZipFile]::Open('${zipName}', 'Create')
+      
+      foreach ($file in $filesToZip) {
+        $fullPath = Join-Path (Get-Location) $file
+        $entryName = $file -replace '\\\\', '/'
+        [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $fullPath, $entryName, 'Optimal') | Out-Null
+      }
+      
+      $zip.Dispose()
     } else {
       Write-Error "No files to zip after applying exclusions"
       exit 1

@@ -1,6 +1,7 @@
 node_modules
-dist
-.vscode
 task.md
-readme.md
 *.zip
+.git
+.vscode
+.gitignore
+.zipignore
