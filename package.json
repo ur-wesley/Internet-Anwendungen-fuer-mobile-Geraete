@@ -17,7 +17,8 @@
     "lint": "biome check ./src --fix",
     "charts": "bun scripts/fetchAlbumCharts.ts",
     "deploy": "gh-pages -d dist",
-    "zip": "bun scripts/createZip.ts"
+    "zip": "bun scripts/createZip.ts",
+    "clear": "rm -rf dist && rm -rf *.zip"
   },
   "license": "MIT",
   "devDependencies": {
