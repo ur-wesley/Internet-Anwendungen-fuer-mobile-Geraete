@@ -1,0 +1,182 @@
+[
+  {
+    "position": 1,
+    "artist": "Feine Sahne Fischfilet",
+    "album": "Wir kommen in Frieden",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550341_a.jpg"
+  },
+  {
+    "position": 2,
+    "artist": "Jeremias",
+    "album": "Trust",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552042_a.jpg"
+  },
+  {
+    "position": 3,
+    "artist": "Sarah Connor",
+    "album": "Freigeistin",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551630_a.jpg"
+  },
+  {
+    "position": 4,
+    "artist": "Miley Cyrus",
+    "album": "Something Beautiful",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549653_a.jpg"
+  },
+  {
+    "position": 5,
+    "artist": "Linkin Park",
+    "album": "From Zero",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/540643_a.jpg"
+  },
+  {
+    "position": 6,
+    "artist": "Pashanim",
+    "album": "Grünewürfelflow",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551440_a.jpg"
+  },
+  {
+    "position": 7,
+    "artist": "Billie Eilish",
+    "album": "Hit Me Hard And Soft",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/535037_a.jpg"
+  },
+  {
+    "position": 8,
+    "artist": "Pet Shop Boys",
+    "album": "Discography - The Complete Singles Collection",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/1347_a.jpg"
+  },
+  {
+    "position": 9,
+    "artist": "Jazeek",
+    "album": "Most Valuable Playa",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549745_a.jpg"
+  },
+  {
+    "position": 10,
+    "artist": "Majan",
+    "album": "Wenn nichts von nichts kommt, woher komm' ich dann?",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553232_a.jpg"
+  },
+  {
+    "position": 11,
+    "artist": "Taylor Swift",
+    "album": "Reputation",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/339440_a.jpg"
+  },
+  {
+    "position": 12,
+    "artist": "Kendrick Lamar",
+    "album": "To Pimp A Butterfly",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/270138_a.jpg"
+  },
+  {
+    "position": 13,
+    "artist": "Matt Berninger",
+    "album": "Get Sunk",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552087_a.jpg"
+  },
+  {
+    "position": 14,
+    "artist": "Tate McRae",
+    "album": "So Close To What",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/546888_a.jpg"
+  },
+  {
+    "position": 15,
+    "artist": "Various Artists",
+    "album": "Sing meinen Song - das Tauschkonzert - Volume 12",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551782_a.jpg"
+  },
+  {
+    "position": 16,
+    "artist": "Nina Chuba",
+    "album": "Glas",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/513144_a.jpg"
+  },
+  {
+    "position": 17,
+    "artist": "Garbage",
+    "album": "Let All That We Imagine Be The Light",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550209_a.jpg"
+  },
+  {
+    "position": 18,
+    "artist": "Linkin Park",
+    "album": "Meteora",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/4436_a.jpg"
+  },
+  {
+    "position": 19,
+    "artist": "Dire Straits",
+    "album": "Brothers In Arms",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/260_a.jpg"
+  },
+  {
+    "position": 20,
+    "artist": "Cro",
+    "album": "Raop",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/200472_a.jpg"
+  },
+  {
+    "position": 21,
+    "artist": "Bad Bunny",
+    "album": "Debí tirar más fotos",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/546299_a.jpg"
+  },
+  {
+    "position": 22,
+    "artist": "Zartmann",
+    "album": "Schönhauser EP",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549961_a.jpg"
+  },
+  {
+    "position": 23,
+    "artist": "Pink Floyd",
+    "album": "Pink Floyd At Pompeii - MCMLXXII",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550964_a.jpg"
+  },
+  {
+    "position": 24,
+    "artist": "Ayliva",
+    "album": "In Liebe",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/539877_a.jpg"
+  },
+  {
+    "position": 25,
+    "artist": "Swans",
+    "album": "Birthing",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552114_a.jpg"
+  },
+  {
+    "position": 26,
+    "artist": "Linkin Park",
+    "album": "Hybrid Theory",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/3595_a.jpg"
+  },
+  {
+    "position": 27,
+    "artist": "Roland Kaiser",
+    "album": "Marathon",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/541960_a.jpg"
+  },
+  {
+    "position": 28,
+    "artist": "Sleep Token",
+    "album": "Even In Arcadia",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549945_a.jpg"
+  },
+  {
+    "position": 29,
+    "artist": "Peter Fox",
+    "album": "Stadtaffe",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/98334_a.jpg"
+  },
+  {
+    "position": 30,
+    "artist": "Lady Gaga",
+    "album": "The Fame",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/91494_a.jpg"
+  }
+]
