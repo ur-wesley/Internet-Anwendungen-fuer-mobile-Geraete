@@ -2,6 +2,9 @@
 
 mobile-first Media Manager mit SolidJS, TypeScript und UnoCSS.
 
+> in der Abgabe ist bereits eine gebaute Version enthalten, die unter `dist/` zu finden ist. Um die App zu starten einfach installieren und den `serve` befehl ausführen. Alternativ ist hier die gebaute Version zu finden: [Github Pages](https://ur-wesley.github.io/Internet-Anwendungen-fuer-mobile-Geraete/).
+> Das Repository dazu lautet: [ur-wesley/Internet-Anwendungen-fuer-mobile-Geraete](https://github.com/ur-wesley/Internet-Anwendungen-fuer-mobile-Geraete).
+
 ## Schnellstart
 
 ### Entwicklungsumgebung starten
