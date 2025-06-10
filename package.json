@@ -1,0 +1,47 @@
+{
+  "name": "internet-anwendungen-fuer-mobile-geraete",
+  "description": "Mobile Web Framework - Media Collection implementation",
+  "version": "1.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ur-wesley/Internet-Anwendungen-fuer-mobile-Geraete.git"
+  },
+  "homepage": "https://ur-wesley.github.io/Internet-Anwendungen-fuer-mobile-Geraete",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "prebuild": "bun scripts/fetchAlbumCharts.ts",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "biome check ./src --fix",
+    "charts": "bun scripts/fetchAlbumCharts.ts",
+    "deploy": "gh-pages -d dist",
+    "zip": "bun scripts/createZip.ts"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@iconify-json/mdi": "^1.2.3",
+    "@types/node": "^24.0.0",
+    "@unocss/preset-icons": "^66.1.4",
+    "@unocss/preset-mini": "^66.1.4",
+    "@unocss/vite": "^66.1.4",
+    "gh-pages": "^6.3.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-solid": "^2.11.6"
+  },
+  "dependencies": {
+    "@kobalte/core": "^0.13.10",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@solid-primitives/storage": "^4.3.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "jsdom": "^26.1.0",
+    "localforage": "^1.10.0",
+    "solid-js": "^1.9.7",
+    "tailwind-merge": "^3.3.0",
+    "unocss-preset-animations": "^1.2.1"
+  }
+}
