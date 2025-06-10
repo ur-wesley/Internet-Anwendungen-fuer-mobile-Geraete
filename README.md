@@ -32,6 +32,8 @@ npm run serve
 
 Der Build wird unter: `http://localhost:4173` bereitgestellt.
 
+> `clearMediaStorage()` in der Browser Konsole löscht die IndexedDB-Datenbank und setzt die App zurück.
+
 ## Hinweise
 
 - **Bun** ist die empfohlene Runtime für beste Performance
