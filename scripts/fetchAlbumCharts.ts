@@ -5,6 +5,7 @@ interface AlbumChart {
  artist: string;
  album: string;
  image?: string;
+ storageType: "remote";
 }
 
 const CHARTS_URL = "https://www.offiziellecharts.de/charts/album";
@@ -130,6 +131,7 @@ async function fetchAlbumCharts(): Promise<AlbumChart[]> {
      artist: artist || "Unknown Artist",
      album: title,
      image: imageUrl,
+     storageType: "remote",
     });
    }
 

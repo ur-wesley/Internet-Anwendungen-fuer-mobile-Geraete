@@ -6,6 +6,7 @@ interface AlbumChart {
   artist: string;
   album: string;
   image?: string;
+  location?: { lat: number; lng: number };
 }
 
 let cachedAlbumCharts: AlbumChart[] | null = null;
@@ -24,7 +25,7 @@ async function loadAlbumCharts(): Promise<AlbumChart[]> {
         return charts;
       }
     }
-  } catch (_error) {
+  } catch {
     console.warn("Could not load album charts, using fallback data");
   }
 
@@ -54,8 +55,10 @@ export async function generateSampleMediaItems(count = 30): Promise<MediaItem[]>
     return {
       id: createId(),
       title: `${chart.artist} - ${chart.album}`,
-      src: chart.image || `https://picsum.photos/400/300?random=${chart.position}`,
+      src: chart.image || "",
       added: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000),
+      storageType: "remote",
+      location: chart.location,
     };
   });
 }
@@ -67,8 +70,9 @@ export function generateRandomMediaItem(): MediaItem {
   return {
     id: createId(),
     title: `${randomChart.artist} - ${randomChart.album}`,
-    src: randomChart.image || `https://picsum.photos/400/300?random=${Date.now()}`,
+    src: randomChart.image || "",
     added: new Date(),
+    storageType: "remote",
   };
 }
 
