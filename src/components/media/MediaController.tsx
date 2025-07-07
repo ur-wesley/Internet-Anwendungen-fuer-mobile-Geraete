@@ -6,6 +6,13 @@ import { MediaView } from "@/components/media/MediaView";
 import type { MediaItem } from "@/types/MediaItem";
 import { Show, createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
+import {
+ Dialog,
+ DialogContent,
+ DialogTitle,
+ DialogFooter,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 type ViewMode = "list" | "detail";
 type DialogMode = "create" | "edit" | "none";
@@ -22,6 +29,10 @@ export function MediaController() {
  const [storageFilter, setStorageFilter] = createSignal<
   "all" | "local" | "remote"
  >("all");
+ const [confirmOpen, setConfirmOpen] = createSignal(false);
+ const [pendingDelete, setPendingDelete] = createSignal<
+  MediaItem | undefined
+ >();
 
  const model = new MediaModel([], setStore);
 
@@ -34,23 +45,7 @@ export function MediaController() {
   setDialogMode("edit");
   setSelectedItem(item);
  };
- const handleDeleteItem = async (itemId: string) => {
-  try {
-   await model.deleteMediaItem(itemId);
-  } catch (error) {
-   console.error("Error deleting item:", error);
-  }
- };
 
- const handleSelectItem = (item: MediaItem) => {
-  setSelectedItem(item);
-  setViewMode("detail");
- };
-
- const handleShowOptions = (item: MediaItem) => {
-  setSelectedItem(item);
-  setShowActionMenu(true);
- };
  const handleSaveItem = async (
   title: string,
   imageSrc: string,
@@ -83,19 +78,6 @@ export function MediaController() {
   }
  };
 
- const handleDeleteFromDetail = async () => {
-  try {
-   const item = selectedItem();
-   if (item) {
-    await model.deleteMediaItem(item.id);
-    setViewMode("list");
-    setSelectedItem(undefined);
-   }
-  } catch (error) {
-   console.error("Error deleting item:", error);
-  }
- };
-
  const handleBackToList = () => {
   setViewMode("list");
   setSelectedItem(undefined);
@@ -105,6 +87,29 @@ export function MediaController() {
 
  const handleStorageFilterChange = (filter: "all" | "local" | "remote") => {
   setStorageFilter(filter);
+ };
+
+ const requestDelete = (item: MediaItem) => {
+  setPendingDelete(item);
+  setConfirmOpen(true);
+ };
+
+ const handleConfirmDelete = async () => {
+  const item = pendingDelete();
+  if (item) {
+   await model.deleteMediaItem(item.id);
+   if (viewMode() === "detail") {
+    setViewMode("list");
+   }
+   setSelectedItem(undefined);
+  }
+  setConfirmOpen(false);
+  setPendingDelete(undefined);
+ };
+
+ const handleCancelDelete = () => {
+  setConfirmOpen(false);
+  setPendingDelete(undefined);
  };
 
  return (
@@ -117,7 +122,7 @@ export function MediaController() {
        <DetailView
         item={item()}
         onBack={handleBackToList}
-        onDelete={handleDeleteFromDetail}
+        onDelete={() => requestDelete(item())}
        />
       )}
      </Show>
@@ -127,9 +132,15 @@ export function MediaController() {
      items={store.items}
      onAddItem={handleAddItem}
      onEditItem={handleEditItem}
-     onDeleteItem={handleDeleteItem}
-     onSelectItem={handleSelectItem}
-     onShowOptions={handleShowOptions}
+     onDeleteItem={() => {}}
+     onSelectItem={(item) => {
+      setSelectedItem(item);
+      setViewMode("detail");
+     }}
+     onShowOptions={(item) => {
+      setSelectedItem(item);
+      setShowActionMenu(true);
+     }}
      isDialogOpen={isDialogOpen()}
      storageFilter={storageFilter()}
      onStorageFilterChange={handleStorageFilterChange}
@@ -162,12 +173,27 @@ export function MediaController() {
      setShowActionMenu(false);
      const item = selectedItem();
      if (item) {
-      handleDeleteItem(item.id);
+      requestDelete(item);
      }
-     setSelectedItem(undefined);
     }}
     item={selectedItem()}
    />
+   <Dialog open={confirmOpen()} onOpenChange={setConfirmOpen}>
+    <DialogContent>
+     <DialogTitle>Löschvorgang bestätigen</DialogTitle>
+     <div class="py-2 text-center">
+      Möchten Sie das Element <b>{pendingDelete()?.title}</b> wirklich löschen?
+     </div>
+     <DialogFooter>
+      <Button variant="ghost" onClick={handleCancelDelete}>
+       Abbrechen
+      </Button>
+      <Button variant="destructive" onClick={handleConfirmDelete}>
+       Löschen
+      </Button>
+     </DialogFooter>
+    </DialogContent>
+   </Dialog>
   </div>
  );
 }
