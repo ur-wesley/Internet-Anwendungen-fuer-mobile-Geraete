@@ -1,6 +1,7 @@
-export interface MediaItem {
-  id: string;
-  title: string;
-  src: string;
-  added: Date;
-}
+export type MediaItem = {
+ id: string;
+ title: string;
+ src: string;
+ added: Date;
+ storageType: "remote" | "local";
+};

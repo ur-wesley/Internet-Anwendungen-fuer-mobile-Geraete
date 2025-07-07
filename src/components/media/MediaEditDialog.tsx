@@ -13,7 +13,11 @@ import { Show } from "solid-js/web";
 interface MediaEditDialogProps {
  readonly isOpen: boolean;
  readonly onClose: () => void;
- readonly onSave: (title: string, imageSrc: string) => void;
+ readonly onSave: (
+  title: string,
+  imageSrc: string,
+  storageType: "local" | "remote"
+ ) => void;
  readonly onDelete?: () => void;
  readonly item?: MediaItem;
  readonly mode: "create" | "edit";
@@ -24,6 +28,9 @@ export function MediaEditDialog(props: MediaEditDialogProps) {
  const [imageFile, setImageFile] = createSignal<File | null>(null);
  const [imagePreview, setImagePreview] = createSignal<string>("");
  const [error, setError] = createSignal<string>("");
+ const [storageType, setStorageType] = createSignal<"local" | "remote">(
+  "local"
+ );
 
  createEffect(() => {
   if (props.isOpen) {
@@ -31,10 +38,12 @@ export function MediaEditDialog(props: MediaEditDialogProps) {
    setImageFile(null);
    setError("");
    setImagePreview(props.item?.src ?? "");
+   setStorageType(props.item?.storageType ?? "local");
   } else {
    setImagePreview("");
    setImageFile(null);
    setError("");
+   setStorageType("local");
   }
  });
 
@@ -52,7 +61,24 @@ export function MediaEditDialog(props: MediaEditDialogProps) {
   }
  };
 
+ async function uploadToRemoteServer(_file: File): Promise<string> {
+  // @TODO upload implementieren
+  return new Promise((resolve) => {
+   setTimeout(resolve, 1000);
+  });
+ }
+
  async function saveImageFile(file: File): Promise<string> {
+  if (storageType() === "remote") {
+   try {
+    const remoteUrl = await uploadToRemoteServer(file);
+    return remoteUrl;
+   } catch {
+    setError("Fehler beim Upload zum Server.");
+    return "";
+   }
+  }
+
   if ("showDirectoryPicker" in window) {
    // @ts-ignore
    const dirHandle = await window.showDirectoryPicker({
@@ -90,7 +116,7 @@ export function MediaEditDialog(props: MediaEditDialogProps) {
    }
   }
   setError("");
-  props.onSave(trimmedTitle, imageSrc);
+  props.onSave(trimmedTitle, imageSrc, storageType());
  };
 
  const handleKeyDown = (e: KeyboardEvent) => {
@@ -132,6 +158,40 @@ export function MediaEditDialog(props: MediaEditDialogProps) {
         class="w-full"
        />
       </TextFieldRoot>
+      <Show when={props.mode === "create"}>
+       <div class="flex flex-col gap-2">
+        <div class="text-sm font-medium">Speicherart</div>
+        <div class="flex gap-2">
+         <label class="flex items-center gap-2">
+          <input
+           type="radio"
+           name="storageType"
+           value="local"
+           checked={storageType() === "local"}
+           onChange={() => setStorageType("local")}
+           class="w-4 h-4"
+          />
+          <span class="text-sm">Lokal speichern</span>
+         </label>
+         <label class="flex items-center gap-2">
+          <input
+           type="radio"
+           name="storageType"
+           value="remote"
+           checked={storageType() === "remote"}
+           onChange={() => setStorageType("remote")}
+           class="w-4 h-4"
+          />
+          <span class="text-sm">Remote speichern</span>
+         </label>
+        </div>
+       </div>
+      </Show>
+      <Show when={props.mode === "edit" && props.item?.storageType}>
+       <div class="text-sm text-muted-foreground">
+        Speicherart: {props.item.storageType === "local" ? "Lokal" : "Remote"}
+       </div>
+      </Show>
       <Show when={imagePreview()}>
        <div class="flex justify-center items-center gap-2">
         <img

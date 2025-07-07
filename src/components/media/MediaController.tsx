@@ -11,144 +11,163 @@ type ViewMode = "list" | "detail";
 type DialogMode = "create" | "edit" | "none";
 
 export function MediaController() {
-  const [store, setStore] = createStore({
-    items: [],
-  });
+ const [store, setStore] = createStore({
+  items: [],
+ });
 
-  const [viewMode, setViewMode] = createSignal<ViewMode>("list");
-  const [dialogMode, setDialogMode] = createSignal<DialogMode>("none");
-  const [selectedItem, setSelectedItem] = createSignal<MediaItem | undefined>();
-  const [showActionMenu, setShowActionMenu] = createSignal(false);
+ const [viewMode, setViewMode] = createSignal<ViewMode>("list");
+ const [dialogMode, setDialogMode] = createSignal<DialogMode>("none");
+ const [selectedItem, setSelectedItem] = createSignal<MediaItem | undefined>();
+ const [showActionMenu, setShowActionMenu] = createSignal(false);
+ const [storageFilter, setStorageFilter] = createSignal<
+  "all" | "local" | "remote"
+ >("all");
 
-  const model = new MediaModel([], setStore);
+ const model = new MediaModel([], setStore);
 
-  const handleAddItem = () => {
-    setDialogMode("create");
+ const handleAddItem = () => {
+  setDialogMode("create");
+  setSelectedItem(undefined);
+ };
+
+ const handleEditItem = (item: MediaItem) => {
+  setDialogMode("edit");
+  setSelectedItem(item);
+ };
+ const handleDeleteItem = async (itemId: string) => {
+  try {
+   await model.deleteMediaItem(itemId);
+  } catch (error) {
+   console.error("Error deleting item:", error);
+  }
+ };
+
+ const handleSelectItem = (item: MediaItem) => {
+  setSelectedItem(item);
+  setViewMode("detail");
+ };
+
+ const handleShowOptions = (item: MediaItem) => {
+  setSelectedItem(item);
+  setShowActionMenu(true);
+ };
+ const handleSaveItem = async (
+  title: string,
+  imageSrc: string,
+  storageType: "local" | "remote"
+ ) => {
+  try {
+   const item = selectedItem();
+   if (dialogMode() === "create") {
+    await model.addMediaItem(title, imageSrc, storageType);
+   } else if (dialogMode() === "edit" && item) {
+    await model.updateMediaItem(item.id, title, imageSrc, storageType);
+   }
+   setDialogMode("none");
+   setSelectedItem(undefined);
+  } catch (error) {
+   console.error("Error saving item:", error);
+  }
+ };
+
+ const handleDeleteFromDialog = async () => {
+  try {
+   const item = selectedItem();
+   if (item) {
+    await model.deleteMediaItem(item.id);
+    setDialogMode("none");
     setSelectedItem(undefined);
-  };
+   }
+  } catch (error) {
+   console.error("Error deleting item:", error);
+  }
+ };
 
-  const handleEditItem = (item: MediaItem) => {
-    setDialogMode("edit");
-    setSelectedItem(item);
-  };
-  const handleDeleteItem = async (itemId: string) => {
-    try {
-      await model.deleteMediaItem(itemId);
-    } catch (error) {
-      console.error("Error deleting item:", error);
-    }
-  };
-
-  const handleSelectItem = (item: MediaItem) => {
-    setSelectedItem(item);
-    setViewMode("detail");
-  };
-
-  const handleShowOptions = (item: MediaItem) => {
-    setSelectedItem(item);
-    setShowActionMenu(true);
-  };
-  const handleSaveItem = async (title: string) => {
-    try {
-      const item = selectedItem();
-      if (dialogMode() === "create") {
-        await model.addMediaItem(title);
-      } else if (dialogMode() === "edit" && item) {
-        await model.updateMediaItem(item.id, title);
-      }
-      setDialogMode("none");
-      setSelectedItem(undefined);
-    } catch (error) {
-      console.error("Error saving item:", error);
-    }
-  };
-
-  const handleDeleteFromDialog = async () => {
-    try {
-      const item = selectedItem();
-      if (item) {
-        await model.deleteMediaItem(item.id);
-        setDialogMode("none");
-        setSelectedItem(undefined);
-      }
-    } catch (error) {
-      console.error("Error deleting item:", error);
-    }
-  };
-
-  const handleDeleteFromDetail = async () => {
-    try {
-      const item = selectedItem();
-      if (item) {
-        await model.deleteMediaItem(item.id);
-        setViewMode("list");
-        setSelectedItem(undefined);
-      }
-    } catch (error) {
-      console.error("Error deleting item:", error);
-    }
-  };
-
-  const handleBackToList = () => {
+ const handleDeleteFromDetail = async () => {
+  try {
+   const item = selectedItem();
+   if (item) {
+    await model.deleteMediaItem(item.id);
     setViewMode("list");
     setSelectedItem(undefined);
-  };
+   }
+  } catch (error) {
+   console.error("Error deleting item:", error);
+  }
+ };
 
-  const isDialogOpen = () => dialogMode() !== "none" || showActionMenu();
+ const handleBackToList = () => {
+  setViewMode("list");
+  setSelectedItem(undefined);
+ };
 
-  return (
-    <div class="h-screen overflow-hidden">
-      <Show
-        when={viewMode() === "list"}
-        fallback={
-          <Show when={selectedItem()}>
-            {(item) => <DetailView item={item()} onBack={handleBackToList} onDelete={handleDeleteFromDetail} />}
-          </Show>
-        }
-      >
-        <MediaView
-          items={store.items}
-          onAddItem={handleAddItem}
-          onEditItem={handleEditItem}
-          onDeleteItem={handleDeleteItem}
-          onSelectItem={handleSelectItem}
-          onShowOptions={handleShowOptions}
-          isDialogOpen={isDialogOpen()}
-        />
-      </Show>
-      <MediaEditDialog
-        isOpen={dialogMode() !== "none"}
-        onClose={() => {
-          setDialogMode("none");
-          setSelectedItem(undefined);
-        }}
-        onSave={handleSaveItem}
-        onDelete={dialogMode() === "edit" ? handleDeleteFromDialog : undefined}
-        item={selectedItem()}
-        mode={dialogMode() === "create" ? "create" : "edit"}
-      />
-      <ActionMenu
-        isOpen={showActionMenu()}
-        onClose={() => {
-          setShowActionMenu(false);
-        }}
-        onEdit={() => {
-          setShowActionMenu(false);
-          const item = selectedItem();
-          if (item) {
-            handleEditItem(item);
-          }
-        }}
-        onDelete={() => {
-          setShowActionMenu(false);
-          const item = selectedItem();
-          if (item) {
-            handleDeleteItem(item.id);
-          }
-          setSelectedItem(undefined);
-        }}
-        item={selectedItem()}
-      />
-    </div>
-  );
+ const isDialogOpen = () => dialogMode() !== "none" || showActionMenu();
+
+ const handleStorageFilterChange = (filter: "all" | "local" | "remote") => {
+  setStorageFilter(filter);
+ };
+
+ return (
+  <div class="h-screen overflow-hidden">
+   <Show
+    when={viewMode() === "list"}
+    fallback={
+     <Show when={selectedItem()}>
+      {(item) => (
+       <DetailView
+        item={item()}
+        onBack={handleBackToList}
+        onDelete={handleDeleteFromDetail}
+       />
+      )}
+     </Show>
+    }
+   >
+    <MediaView
+     items={store.items}
+     onAddItem={handleAddItem}
+     onEditItem={handleEditItem}
+     onDeleteItem={handleDeleteItem}
+     onSelectItem={handleSelectItem}
+     onShowOptions={handleShowOptions}
+     isDialogOpen={isDialogOpen()}
+     storageFilter={storageFilter()}
+     onStorageFilterChange={handleStorageFilterChange}
+    />
+   </Show>
+   <MediaEditDialog
+    isOpen={dialogMode() !== "none"}
+    onClose={() => {
+     setDialogMode("none");
+     setSelectedItem(undefined);
+    }}
+    onSave={handleSaveItem}
+    onDelete={dialogMode() === "edit" ? handleDeleteFromDialog : undefined}
+    item={selectedItem()}
+    mode={dialogMode() === "create" ? "create" : "edit"}
+   />
+   <ActionMenu
+    isOpen={showActionMenu()}
+    onClose={() => {
+     setShowActionMenu(false);
+    }}
+    onEdit={() => {
+     setShowActionMenu(false);
+     const item = selectedItem();
+     if (item) {
+      handleEditItem(item);
+     }
+    }}
+    onDelete={() => {
+     setShowActionMenu(false);
+     const item = selectedItem();
+     if (item) {
+      handleDeleteItem(item.id);
+     }
+     setSelectedItem(undefined);
+    }}
+    item={selectedItem()}
+   />
+  </div>
+ );
 }
