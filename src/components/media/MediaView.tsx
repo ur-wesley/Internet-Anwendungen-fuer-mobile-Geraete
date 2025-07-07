@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Image, ImageFallback, ImageRoot } from "@/components/ui/image";
 import type { MediaItem } from "@/types/MediaItem";
 import { For, Show } from "solid-js";
+import { SheetTrigger } from "../ui/sheet.jsx";
 
 interface MediaViewProps {
  items: MediaItem[];
@@ -29,7 +30,9 @@ export function MediaView(props: Readonly<MediaViewProps>) {
   >
    <header class="flex items-center justify-between p-4 border-b-2 border-border bg-card shadow-sm shrink-0">
     <div class="flex items-center gap-3">
-     <div class="i-mdi-menu h-6 w-6" />
+     <SheetTrigger>
+      <div class="i-mdi-menu h-6 w-6" />
+     </SheetTrigger>
      <h1 class="text-xl font-bold">Medien</h1>
     </div>
     <Button
@@ -103,7 +106,6 @@ export function MediaView(props: Readonly<MediaViewProps>) {
         </div>
        )}
       </For>
-      {/* Add extra padding at the bottom to ensure last item is fully visible on mobile */}
       <div class="h-16 md:h-8" />
      </div>
     </Show>

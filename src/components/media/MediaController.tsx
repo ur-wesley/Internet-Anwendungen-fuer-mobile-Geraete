@@ -13,8 +13,9 @@ import {
  DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
-type ViewMode = "list" | "detail";
+type ViewMode = "list" | "detail" | "overview";
 type DialogMode = "create" | "edit" | "none";
 
 export function MediaController() {
@@ -114,20 +115,7 @@ export function MediaController() {
 
  return (
   <div class="h-screen overflow-hidden">
-   <Show
-    when={viewMode() === "list"}
-    fallback={
-     <Show when={selectedItem()}>
-      {(item) => (
-       <DetailView
-        item={item()}
-        onBack={handleBackToList}
-        onDelete={() => requestDelete(item())}
-       />
-      )}
-     </Show>
-    }
-   >
+   <Sheet>
     <MediaView
      items={store.items}
      onAddItem={handleAddItem}
@@ -145,6 +133,56 @@ export function MediaController() {
      storageFilter={storageFilter()}
      onStorageFilterChange={handleStorageFilterChange}
     />
+    <SheetContent side="left">
+     <SheetTitle>Ansicht wechseln</SheetTitle>
+     <div class="flex flex-col gap-4 mt-6">
+      <Button
+       variant={viewMode() === "list" ? "default" : "ghost"}
+       onClick={() => setViewMode("list")}
+      >
+       Listenansicht
+      </Button>
+      <Button
+       variant={viewMode() === "overview" ? "default" : "ghost"}
+       onClick={() => setViewMode("overview")}
+      >
+       Übersicht
+      </Button>
+     </div>
+    </SheetContent>
+   </Sheet>
+   <Show
+    when={viewMode() === "list"}
+    fallback={
+     <Show
+      when={viewMode() === "overview"}
+      fallback={
+       <Show when={selectedItem()}>
+        {(item) => (
+         <DetailView
+          item={item()}
+          onBack={handleBackToList}
+          onDelete={() => requestDelete(item())}
+         />
+        )}
+       </Show>
+      }
+     >
+      {/* platzhalter */}
+      <div class="flex flex-col items-center justify-center h-full text-muted-foreground">
+       <div class="i-mdi-view-dashboard-outline text-6xl mb-4" />
+       <div class="text-xl">Alternative Ansicht</div>
+       <div class="mt-2">alternative Übersicht.</div>
+      </div>
+     </Show>
+    }
+   >
+    {/* platzhalter */}
+    <div class="flex flex-col items-center justify-center h-full text-muted-foreground">
+     <div class="i-mdi-view-dashboard-outline text-6xl mb-4" />
+     <div class="text-xl">Alternative Ansicht</div>
+     <div class="mt-2">alternative Übersicht.</div>
+    </div>
    </Show>
    <MediaEditDialog
     isOpen={dialogMode() !== "none"}
