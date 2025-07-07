@@ -24,25 +24,25 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@iconify-json/mdi": "^1.2.3",
-    "@types/node": "^24.0.0",
-    "@unocss/preset-icons": "^66.1.4",
-    "@unocss/preset-mini": "^66.1.4",
-    "@unocss/vite": "^66.1.4",
+    "@types/node": "^24.0.10",
+    "@unocss/preset-icons": "^66.3.3",
+    "@unocss/preset-mini": "^66.3.3",
+    "@unocss/vite": "^66.3.3",
     "gh-pages": "^6.3.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
-    "vite-plugin-solid": "^2.11.6"
+    "vite-plugin-solid": "^2.11.7"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.10",
     "@paralleldrive/cuid2": "^2.2.2",
-    "@solid-primitives/storage": "^4.3.2",
+    "@solid-primitives/storage": "^4.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jsdom": "^26.1.0",
     "localforage": "^1.10.0",
     "solid-js": "^1.9.7",
-    "tailwind-merge": "^3.3.0",
+    "tailwind-merge": "^3.3.1",
     "unocss-preset-animations": "^1.2.1"
   }
 }
