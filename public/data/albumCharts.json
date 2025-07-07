@@ -1,182 +1,216 @@
 [
   {
     "position": 1,
-    "artist": "Feine Sahne Fischfilet",
-    "album": "Wir kommen in Frieden",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550341_a.jpg"
+    "artist": "Bruce Springsteen",
+    "album": "Tracks II: The Lost Albums",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/554225_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 2,
-    "artist": "Jeremias",
-    "album": "Trust",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552042_a.jpg"
+    "artist": "Heaven Shall Burn",
+    "album": "Heimat",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553402_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 3,
-    "artist": "Sarah Connor",
-    "album": "Freigeistin",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551630_a.jpg"
+    "artist": "Lorde",
+    "album": "Virgin",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551507_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 4,
-    "artist": "Miley Cyrus",
-    "album": "Something Beautiful",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549653_a.jpg"
+    "artist": "Sodom",
+    "album": "The Arsonist",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553416_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 5,
-    "artist": "Linkin Park",
-    "album": "From Zero",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/540643_a.jpg"
+    "artist": "Bruce Springsteen",
+    "album": "Lost And Found",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553440_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 6,
-    "artist": "Pashanim",
-    "album": "Grünewürfelflow",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551440_a.jpg"
+    "artist": "Dota",
+    "album": "Springbrunnen",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553471_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 7,
-    "artist": "Billie Eilish",
-    "album": "Hit Me Hard And Soft",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/535037_a.jpg"
+    "artist": "Soundtrack",
+    "album": "KPop Demon Hunters",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/554047_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 8,
-    "artist": "Pet Shop Boys",
-    "album": "Discography - The Complete Singles Collection",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/1347_a.jpg"
+    "artist": "Linkin Park",
+    "album": "From Zero",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/540643_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 9,
-    "artist": "Jazeek",
-    "album": "Most Valuable Playa",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549745_a.jpg"
+    "artist": "Motörhead",
+    "album": "The Manticore Tapes",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553493_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 10,
-    "artist": "Majan",
-    "album": "Wenn nichts von nichts kommt, woher komm' ich dann?",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553232_a.jpg"
+    "artist": "Sarah Connor",
+    "album": "Freigeistin",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551630_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 11,
-    "artist": "Taylor Swift",
-    "album": "Reputation",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/339440_a.jpg"
+    "artist": "Pashanim",
+    "album": "Grünewürfelflow",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551440_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 12,
-    "artist": "Kendrick Lamar",
-    "album": "To Pimp A Butterfly",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/270138_a.jpg"
+    "artist": "Billie Eilish",
+    "album": "Hit Me Hard And Soft",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/535037_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 13,
-    "artist": "Matt Berninger",
-    "album": "Get Sunk",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552087_a.jpg"
+    "artist": "Ideal",
+    "album": "Ideal",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/8474_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 14,
-    "artist": "Tate McRae",
-    "album": "So Close To What",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/546888_a.jpg"
+    "artist": "Frank Zappa",
+    "album": "Cheaper Than Cheep",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551117_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 15,
-    "artist": "Various Artists",
-    "album": "Sing meinen Song - das Tauschkonzert - Volume 12",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/551782_a.jpg"
+    "artist": "Jazeek",
+    "album": "Most Valuable Playa",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549745_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 16,
-    "artist": "Nina Chuba",
-    "album": "Glas",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/513144_a.jpg"
+    "artist": "Linkin Park",
+    "album": "Meteora",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/4436_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 17,
-    "artist": "Garbage",
-    "album": "Let All That We Imagine Be The Light",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550209_a.jpg"
+    "artist": "Nina Chuba",
+    "album": "Glas",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/513144_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 18,
-    "artist": "Linkin Park",
-    "album": "Meteora",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/4436_a.jpg"
+    "artist": "Andrea Berg",
+    "album": "Andrea Berg",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/538196_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 19,
-    "artist": "Dire Straits",
-    "album": "Brothers In Arms",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/260_a.jpg"
+    "artist": "Volbeat",
+    "album": "God Of Angels Trust",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/548509_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 20,
     "artist": "Cro",
     "album": "Raop",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/200472_a.jpg"
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/200472_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 21,
-    "artist": "Bad Bunny",
-    "album": "Debí tirar más fotos",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/546299_a.jpg"
+    "artist": "Blokkmonsta",
+    "album": "2K5",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/554289_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 22,
-    "artist": "Zartmann",
-    "album": "Schönhauser EP",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549961_a.jpg"
+    "artist": "Barbra Streisand",
+    "album": "The Secret Of Life - Partners Volume Two",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/553431_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 23,
-    "artist": "Pink Floyd",
-    "album": "Pink Floyd At Pompeii - MCMLXXII",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550964_a.jpg"
+    "artist": "Linkin Park",
+    "album": "Hybrid Theory",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/3595_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 24,
-    "artist": "Ayliva",
-    "album": "In Liebe",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/539877_a.jpg"
+    "artist": "The Black Eyed Peas",
+    "album": "The E•N•D",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/111526_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 25,
-    "artist": "Swans",
-    "album": "Birthing",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552114_a.jpg"
+    "artist": "Twenty One Pilots",
+    "album": "Blurryface",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/273668_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 26,
-    "artist": "Linkin Park",
-    "album": "Hybrid Theory",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/3595_a.jpg"
+    "artist": "Dire Straits",
+    "album": "Brothers In Arms",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/260_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 27,
-    "artist": "Roland Kaiser",
-    "album": "Marathon",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/541960_a.jpg"
+    "artist": "Pink Floyd",
+    "album": "Pink Floyd At Pompeii - MCMLXXII",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/550964_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 28,
-    "artist": "Sleep Token",
-    "album": "Even In Arcadia",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549945_a.jpg"
+    "artist": "Enhypen",
+    "album": "Desire: Unleash",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/552590_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 29,
-    "artist": "Peter Fox",
-    "album": "Stadtaffe",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/98334_a.jpg"
+    "artist": "Bad Bunny",
+    "album": "Debí tirar más fotos",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/546299_a.jpg",
+    "storageType": "remote"
   },
   {
     "position": 30,
-    "artist": "Lady Gaga",
-    "album": "The Fame",
-    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/91494_a.jpg"
+    "artist": "Zartmann",
+    "album": "Schönhauser EP",
+    "image": "https://www.offiziellecharts.de/templates/gfktemplate/images/cover/549961_a.jpg",
+    "storageType": "remote",
+    "location": {
+      "lat": 52.5244,
+      "lng": 13.4105
+    }
   }
 ]
